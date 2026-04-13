@@ -1,0 +1,112 @@
+{
+    "nav": {
+        "services": "Services",
+        "projects": "Projects",
+        "about": "About",
+        "contact": "Contact",
+        "consultation": "Book Consultation"
+    },
+    "hero": {
+        "headline": "Building the Future",
+        "headline_accent": "with Exceptional Engineering",
+        "sub": "Comprehensive engineering consultancy and safety engineering across Saudi Arabia",
+        "cta_primary": "Explore Services",
+        "cta_secondary": "Contact Us",
+        "scroll": "Scroll Down"
+    },
+    "stats": {
+        "projects": "Projects Completed",
+        "years": "Years of Experience",
+        "clients": "Satisfied Clients",
+        "compliance": "Saudi Code Compliant"
+    },
+    "services": {
+        "title": "Our Services",
+        "subtitle": "Comprehensive engineering solutions covering all your project needs",
+        "learnMore": "Learn More",
+        "items": {
+            "consulting": {
+                "title": "Engineering Consultancy",
+                "description": "Architectural, structural, and MEP design for all types of projects"
+            },
+            "safety": {
+                "title": "Safety Engineering",
+                "description": "Fire protection systems, safety studies, and civil defense compliance"
+            },
+            "supervision": {
+                "title": "Engineering Supervision",
+                "description": "Professional project supervision for government and private sector"
+            },
+            "interior": {
+                "title": "Interior Design",
+                "description": "Creative interior design and detailed drawing preparation"
+            },
+            "factory": {
+                "title": "Factory Design",
+                "description": "Architectural, structural and MEP drawings compliant with MODON requirements"
+            },
+            "modon": {
+                "title": "MODON Compliance",
+                "description": "Full compliance with MODON and Saudi Building Code requirements"
+            }
+        }
+    },
+    "projects": {
+        "title": "Featured Projects",
+        "subtitle": "A selection of our work across Saudi Arabia",
+        "viewAll": "View All Projects",
+        "drag": "Drag to browse"
+    },
+    "about": {
+        "title": "About Our Office",
+        "subtitle": "Specialized Engineering Consultancy",
+        "description": "Arab Charter Engineering Consultants (ACEC) — a specialized engineering consultancy providing comprehensive engineering services and safety engineering across Saudi Arabia. We combine deep expertise with modern technology to deliver exceptional engineering solutions.",
+        "learnMore": "Learn More About Us"
+    },
+    "why": {
+        "title": "Why Choose Us?",
+        "subtitle": "What makes us the ideal choice for your project",
+        "items": {
+            "experience": {
+                "title": "15+ Years Experience",
+                "description": "Extensive experience delivering diverse engineering projects"
+            },
+            "compliance": {
+                "title": "Full Compliance",
+                "description": "Complete adherence to Saudi Code and government authority requirements"
+            },
+            "quality": {
+                "title": "High Standards",
+                "description": "The highest quality standards at every stage of the project"
+            },
+            "team": {
+                "title": "Specialized Team",
+                "description": "Certified engineers specialized across all engineering disciplines"
+            }
+        }
+    },
+    "cta": {
+        "title": "Ready to Start Your Project?",
+        "subtitle": "Contact us today and get a free consultation",
+        "button": "Contact Us Now"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "We are here to answer all your inquiries",
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "message": "Your Message",
+        "service": "Service Required",
+        "submit": "Send Message",
+        "success": "Message sent successfully! We'll contact you soon.",
+        "error": "An error occurred, please try again."
+    },
+    "footer": {
+        "description": "Specialized engineering consultancy in Saudi Arabia",
+        "quickLinks": "Quick Links",
+        "contactInfo": "Contact Info",
+        "rights": "All Rights Reserved",
+        "company": "Arab Charter Engineering Consultants"
+    }
+}

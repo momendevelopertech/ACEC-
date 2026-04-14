@@ -60,17 +60,22 @@ export function Navbar() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
+                    gap: "1rem",
+                    flexWrap: "wrap",
                 }}
             >
                 {/* Logo */}
-                <Logo size="md" href={`/${locale}`} />
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem", minWidth: 0 }}>
+                    <Logo size="md" href={`/${locale}`} />
+                </div>
 
                 {/* Desktop Nav */}
                 <nav
                     style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "0.25rem",
+                        gap: "0.5rem",
+                        flexWrap: "wrap",
                     }}
                     className="hidden-mobile"
                 >
@@ -96,7 +101,7 @@ export function Navbar() {
                 </nav>
 
                 {/* Right side actions */}
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap", justifyContent: "flex-end", minWidth: 0 }}>
                     {/* Language switcher */}
                     <button
                         onClick={switchLocale}
@@ -107,10 +112,11 @@ export function Navbar() {
                             color: "var(--color-gold)",
                             fontSize: "0.8rem",
                             fontWeight: 600,
-                            padding: "0.4rem 0.9rem",
+                            padding: "0.45rem 1rem",
                             cursor: "pointer",
                             transition: "all 0.2s",
                             letterSpacing: "0.05em",
+                            whiteSpace: "nowrap",
                         }}
                     >
                         {locale === "ar" ? "EN" : "عربي"}
@@ -120,7 +126,7 @@ export function Navbar() {
                     <Link
                         href={`/${locale}/contact`}
                         className="magnetic-btn magnetic-btn-primary hidden-mobile"
-                        style={{ fontSize: "0.875rem", padding: "0.625rem 1.5rem" }}
+                        style={{ fontSize: "0.875rem", padding: "0.625rem 1.4rem" }}
                     >
                         {t("consultation")}
                     </Link>
@@ -129,32 +135,36 @@ export function Navbar() {
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         style={{
-                            background: "none",
-                            border: "none",
+                            background: "rgba(255, 255, 255, 0.08)",
+                            border: "1px solid rgba(255, 255, 255, 0.12)",
+                            borderRadius: "999px",
                             cursor: "pointer",
                             display: "flex",
                             flexDirection: "column",
-                            gap: "5px",
-                            padding: "4px",
+                            gap: "4px",
+                            padding: "0.75rem 0.85rem",
+                            minWidth: "3.5rem",
+                            alignItems: "center",
+                            justifyContent: "center",
                         }}
                         className="show-mobile"
-                        aria-label="Toggle menu"
+                        aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
                     >
                         {[0, 1, 2].map((i) => (
                             <span
                                 key={i}
                                 style={{
                                     display: "block",
-                                    width: "24px",
-                                    height: "1.5px",
+                                    width: "22px",
+                                    height: "2px",
                                     background: "var(--color-gold)",
                                     borderRadius: "2px",
                                     transition: "all 0.3s",
                                     transform:
                                         menuOpen && i === 0
-                                            ? "translateY(6.5px) rotate(45deg)"
+                                            ? "translateY(6px) rotate(45deg)"
                                             : menuOpen && i === 2
-                                                ? "translateY(-6.5px) rotate(-45deg)"
+                                                ? "translateY(-6px) rotate(-45deg)"
                                                 : menuOpen && i === 1
                                                     ? "scaleX(0)"
                                                     : "none",

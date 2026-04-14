@@ -13,9 +13,9 @@ export function Logo({ size = "md", href }: LogoProps) {
   const locale = useLocale();
 
   const sizeMap = {
-    sm: { width: 80, height: 25 },
-    md: { width: 120, height: 37 },
-    lg: { width: 160, height: 50 },
+    sm: { width: 170, height: 60 },
+    md: { width: 280, height: 100 },
+    lg: { width: 340, height: 120 },
   };
 
   const dimensions = sizeMap[size];

@@ -79,10 +79,10 @@ export function Navbar() {
                             key={link.href}
                             href={link.href}
                             style={{
-                                color: "rgba(245, 245, 240, 0.7)",
+                                color: "var(--color-white)",
                                 textDecoration: "none",
-                                fontSize: "0.9rem",
-                                fontWeight: 500,
+                                fontSize: "0.95rem",
+                                fontWeight: 600,
                                 padding: "0.5rem 1rem",
                                 borderRadius: "9999px",
                                 transition: "all 0.2s",
@@ -173,12 +173,13 @@ export function Navbar() {
                     top: 0,
                     background: "rgba(10, 10, 15, 0.97)",
                     backdropFilter: "blur(30px)",
-                    zIndex: -1,
+                    zIndex: 1001,
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "2rem",
+                    paddingTop: "6rem",
                     transition: "opacity 0.4s, visibility 0.4s",
                     opacity: menuOpen ? 1 : 0,
                     visibility: menuOpen ? "visible" : "hidden",

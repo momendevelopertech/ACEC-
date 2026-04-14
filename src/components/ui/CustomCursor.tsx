@@ -8,11 +8,24 @@ export function CustomCursor() {
     const [enabled, setEnabled] = useState(false);
 
     useEffect(() => {
-        const desktopQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-        const updateEnabled = () => setEnabled(desktopQuery.matches);
-        updateEnabled();
-        desktopQuery.addEventListener("change", updateEnabled);
-        return () => desktopQuery.removeEventListener("change", updateEnabled);
+        const detector = () => {
+            const finePointer = window.matchMedia("(pointer: fine)").matches;
+            const hoverSupported = window.matchMedia("(hover: hover)").matches;
+            const hasTouch = navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+            setEnabled(finePointer && hoverSupported && !hasTouch);
+        };
+
+        detector();
+
+        const pointerQuery = window.matchMedia("(pointer: fine)");
+        const hoverQuery = window.matchMedia("(hover: hover)");
+        pointerQuery.addEventListener("change", detector);
+        hoverQuery.addEventListener("change", detector);
+
+        return () => {
+            pointerQuery.removeEventListener("change", detector);
+            hoverQuery.removeEventListener("change", detector);
+        };
     }, []);
 
     useEffect(() => {
@@ -72,6 +85,7 @@ export function CustomCursor() {
             handledElements.clear();
         };
 
+        document.documentElement.classList.add("custom-cursor-enabled");
         window.addEventListener("mousemove", onMouseMove);
         addListeners();
         animate();
@@ -84,6 +98,7 @@ export function CustomCursor() {
             removeListeners();
             observer.disconnect();
             cancelAnimationFrame(animationFrame);
+            document.documentElement.classList.remove("custom-cursor-enabled");
         };
     }, [enabled]);
 
@@ -93,6 +108,21 @@ export function CustomCursor() {
 
     return (
         <>
+            <style>{`
+                .custom-cursor-enabled {
+                    cursor: none !important;
+                }
+                .custom-cursor-enabled * {
+                    cursor: none !important;
+                }
+                .custom-cursor-enabled button,
+                .custom-cursor-enabled a,
+                .custom-cursor-enabled input,
+                .custom-cursor-enabled textarea,
+                .custom-cursor-enabled select {
+                    cursor: none !important;
+                }
+            `}</style>
             <div ref={dotRef} className="cursor-dot" style={{ display: "block" }} />
             <div ref={ringRef} className="cursor-ring" style={{ display: "block" }} />
         </>

@@ -109,23 +109,21 @@ export function CustomCursor() {
 
     return (
         <>
-            {active ? (
-                <style>{`
-                    .custom-cursor-enabled {
-                        cursor: none !important;
-                    }
-                    .custom-cursor-enabled * {
-                        cursor: none !important;
-                    }
-                    .custom-cursor-enabled button,
-                    .custom-cursor-enabled a,
-                    .custom-cursor-enabled input,
-                    .custom-cursor-enabled textarea,
-                    .custom-cursor-enabled select {
-                        cursor: none !important;
-                    }
-                `}</style>
-            ) : null}
+            <style>{`
+                .custom-cursor-enabled {
+                    cursor: none !important;
+                }
+                .custom-cursor-enabled * {
+                    cursor: none !important;
+                }
+                .custom-cursor-enabled button,
+                .custom-cursor-enabled a,
+                .custom-cursor-enabled input,
+                .custom-cursor-enabled textarea,
+                .custom-cursor-enabled select {
+                    cursor: none !important;
+                }
+            `}</style>
             <div ref={dotRef} className="cursor-dot" style={{ display: "block" }} />
             <div ref={ringRef} className="cursor-ring" style={{ display: "block" }} />
         </>

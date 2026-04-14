@@ -58,6 +58,8 @@ export function PageLoader() {
           </defs>
           <rect width="100%" height="100%" fill="url(#loaderGrid)" />
           <path d="M40 180 L80 130 L140 170 L220 90 L300 130" fill="none" stroke="rgba(201, 168, 76, 0.18)" strokeWidth="2" />
+          <path className="loader-arch" d="M90 200 L90 135 L135 110 L180 135 L180 200" fill="none" stroke="rgba(201, 168, 76, 0.65)" strokeWidth="2" />
+          <path className="loader-arch" d="M100 135 L165 135" fill="none" stroke="rgba(201, 168, 76, 0.65)" strokeWidth="1.5" />
           <circle cx="110" cy="60" r="24" fill="rgba(201, 168, 76, 0.08)" />
           <rect x="220" y="40" width="60" height="90" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(201, 168, 76, 0.16)" strokeWidth="1" />
         </svg>
@@ -100,6 +102,7 @@ export function PageLoader() {
           place-items: center;
           gap: 1.4rem;
           overflow: hidden;
+          animation: loaderBackdropPulse 4.5s ease-in-out infinite alternate;
         }
 
         .loader-grid-svg {
@@ -108,6 +111,7 @@ export function PageLoader() {
           width: 100%;
           height: 100%;
           opacity: 0.35;
+          animation: loaderGridShift 12s linear infinite;
         }
 
         .loader-content {
@@ -118,6 +122,9 @@ export function PageLoader() {
           align-items: center;
           justify-items: center;
           text-align: center;
+          animation: loaderContentIn 0.9s ease-out forwards;
+          opacity: 0;
+          transform: translateY(12px);
         }
 
         .loader-logo {
@@ -127,19 +134,19 @@ export function PageLoader() {
           letter-spacing: 0.18em;
           color: #ffffff;
           opacity: 0;
-          transform: scale(0.86);
-          animation: loaderLogoIn 0.72s ease-out forwards;
+          transform: scale(0.82);
+          animation: loaderLogoIn 0.72s ease-out 0.1s forwards;
         }
 
         .loader-tag {
           display: block;
           font-size: 0.95rem;
-          color: rgba(255,255,255,0.85);
+          color: rgba(255,255,255,0.95);
           letter-spacing: 0.12em;
           text-transform: uppercase;
           opacity: 0;
-          transform: translateY(10px);
-          animation: loaderTagIn 0.8s ease-out 0.15s forwards;
+          transform: translateY(14px);
+          animation: loaderTagIn 0.8s ease-out 0.22s forwards;
         }
 
         .loader-bar {
@@ -149,6 +156,7 @@ export function PageLoader() {
           border-radius: 999px;
           overflow: hidden;
           background: rgba(255,255,255,0.08);
+          box-shadow: inset 0 0 18px rgba(255,255,255,0.06);
         }
 
         .loader-bar span {
@@ -157,22 +165,63 @@ export function PageLoader() {
           height: 100%;
           transform-origin: left center;
           transform: scaleX(0);
-          background: linear-gradient(90deg, #c9a84c 0%, #f3d98c 60%, #c9a84c 100%);
-          animation: loaderBar 2.6s ease-out forwards;
+          background: linear-gradient(90deg, #c9a84c 0%, #f3d98c 50%, #c9a84c 100%);
+          background-size: 220% 100%;
+          animation: loaderBar 2.6s ease-out forwards, loaderBarGlow 2.6s ease-in-out 0.4s infinite alternate;
         }
 
-        @keyframes loaderLogoIn {
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
+        @keyframes loaderBackdropPulse {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.01); }
         }
 
-        @keyframes loaderTagIn {
+        @keyframes loaderGridShift {
+          0% { transform: translate(0, 0) rotate(0deg); }
+          100% { transform: translate(-18px, 12px) rotate(1deg); }
+        }
+
+        @keyframes loaderContentIn {
           to {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        @keyframes loaderLogoIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.78) translateY(8px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+
+        @keyframes loaderTagIn {
+          0% {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes loaderArchDraw {
+          from {
+            stroke-dashoffset: 200;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        .loader-arch {
+          stroke-dasharray: 200;
+          stroke-dashoffset: 200;
+          animation: loaderArchDraw 1.5s ease-out forwards 0.35s;
         }
 
         @keyframes loaderBar {
@@ -180,6 +229,11 @@ export function PageLoader() {
           45% { transform: scaleX(0.42); }
           75% { transform: scaleX(0.84); }
           100% { transform: scaleX(1); }
+        }
+
+        @keyframes loaderBarGlow {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 100% 50%; }
         }
 
         @media (max-width: 520px) {

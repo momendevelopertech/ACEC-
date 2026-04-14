@@ -139,8 +139,8 @@ export function AboutSection() {
                         className="about-image"
                     >
                         <Image
-                            src="https://images.unsplash.com/photo-1460574283810-2aab119d8511?w=800&q=80"
-                            alt="ACEC Engineering Office"
+                            src="/images/about-architecture.svg"
+                            alt="ACEC engineering illustration"
                             fill
                             style={{ objectFit: "cover" }}
                         />

@@ -18,7 +18,7 @@ export const servicesData: Record<ServiceKey, {
       ar: "نقدم خدمات الاستشارات الهندسية الشاملة التي تغطي جميع جوانب مشروعك من البداية إلى النهاية. فريقنا متخصص في التصميم المعماري والإنشائي والأنظمة الكهروميكانيكية بما يتوافق مع أعلى المعايير الهندسية.",
       en: "We provide comprehensive engineering consulting services that cover all aspects of your project from start to finish. Our team specializes in architectural and structural design and electromechanical systems aligned with the highest engineering standards."
     },
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80",
+    image: "/images/service-bg-1.svg",
     features: [
       { ar: "تصميم معماري مبتكر", en: "Innovative Architectural Design" },
       { ar: "تصميم إنشائي آمن وفعال", en: "Safe and Efficient Structural Design" },
@@ -47,7 +47,7 @@ export const servicesData: Record<ServiceKey, {
       ar: "متخصصون في تصميم وتنفيذ أنظمة الحماية من الحريق والسلامة الشاملة. نوفر دراسات الجدوى الأمنية والامتثال الكامل لمتطلبات الدفاع المدني وجميع اللوائح الحكومية.",
       en: "Specialized in designing and implementing fire protection and comprehensive safety systems. We provide security feasibility studies and full compliance with Civil Defense requirements and all government regulations."
     },
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+    image: "/images/service-bg-2.svg",
     features: [
       { ar: "أنظمة إطفاء الحريق المتطورة", en: "Advanced Fire Suppression Systems" },
       { ar: "أنظمة الإنذار والتحذير", en: "Alarm and Warning Systems" },
@@ -76,7 +76,7 @@ export const servicesData: Record<ServiceKey, {
       ar: "فريق خبرتنا في الإشراف الهندسي يضمن تنفيذ المشاريع وفقاً للمواصفات الهندسية والجداول الزمنية المتفق عليها. نوفر إشرافاً شاملاً لمشاريع القطاعين الحكومي والخاص بأعلى معايير الجودة.",
       en: "Our supervision team ensures projects are executed according to engineering specifications and agreed timelines. We provide comprehensive supervision of government and private sector projects with the highest quality standards."
     },
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    image: "/images/service-bg-3.svg",
     features: [
       { ar: "متابعة يومية للموقع", en: "Daily Site Monitoring" },
       { ar: "فحص المواد والمقاولين", en: "Material and Contractor Inspection" },
@@ -105,7 +105,7 @@ export const servicesData: Record<ServiceKey, {
       ar: "خدمات التصميم الداخلي الإبداعية التي تحول المساحات إلى بيئات جذابة وعملية. نجمع بين الإبداع والتصميم الدقيق لإنشاء مساحات تعكس رؤيتك.",
       en: "Creative interior design services that transform spaces into attractive and practical environments. We combine creativity and precise design to create spaces that reflect your vision."
     },
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
+    image: "/images/service-bg-1.svg",
     features: [
       { ar: "تصميم مساحات سكنية وتجارية", en: "Residential and Commercial Spaces" },
       { ar: "مخططات ثنائية وثلاثية الأبعاد", en: "2D and 3D Floor Plans" },
@@ -134,7 +134,7 @@ export const servicesData: Record<ServiceKey, {
       ar: "متخصصون في تصميم المصانع والمنشآت الصناعية بما يتوافق مع متطلبات هيئة المدن الصناعية والأكواس الهندسية. نوفر حلولاً صناعية متكاملة تحسن الإنتاجية والكفاءة.",
       en: "Specialized in designing factories and industrial facilities in compliance with Saudi Industrial Cities Authority and engineering codes. We provide integrated industrial solutions that improve productivity and efficiency."
     },
-    image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200&q=80",
+    image: "/images/service-bg-2.svg",
     features: [
       { ar: "تصميم معماري صناعي متطور", en: "Advanced Industrial Architectural Design" },
       { ar: "أنظمة الأمان والسلامة الصناعية", en: "Industrial Safety and Security Systems" },
@@ -163,7 +163,7 @@ export const servicesData: Record<ServiceKey, {
       ar: "نوفر خدمات متخصصة لضمان امتثال المشاريع الصناعية الكاملة لمتطلبات هيئة المدن الصناعية (MODON) والكود السعودي. فريقنا على اطلاع دائم بآخر التعديلات والمعايير.",
       en: "We provide specialized services to ensure complete compliance of industrial projects with MODON (Saudi Industrial Cities Authority) requirements and the Saudi Building Code. Our team stays updated with the latest amendments and standards."
     },
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80",
+    image: "/images/service-bg-3.svg",
     features: [
       { ar: "معرفة عميقة بمتطلبات MODON", en: "In-Depth MODON Requirements Knowledge" },
       { ar: "توافق مع الكود السعودي الجديد", en: "Saudi Building Code Compliance" },

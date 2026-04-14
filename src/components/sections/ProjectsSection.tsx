@@ -13,7 +13,7 @@ const projects = [
         titleEn: "Commercial Complex, Riyadh",
         categoryAr: "تصميم معماري",
         categoryEn: "Architectural Design",
-        image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=70",
+        image: "/images/project-architecture-1.svg",
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const projects = [
         titleEn: "Industrial Factory - Industrial Zone",
         categoryAr: "تصميم مصانع",
         categoryEn: "Factory Design",
-        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&q=70",
+        image: "/images/project-architecture-2.svg",
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const projects = [
         titleEn: "Engineering Supervision - Jeddah",
         categoryAr: "إشراف هندسي",
         categoryEn: "Engineering Supervision",
-        image: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?w=700&q=70",
+        image: "/images/project-architecture-3.svg",
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ const projects = [
         titleEn: "Administrative Building - Dammam",
         categoryAr: "تصميم معماري",
         categoryEn: "Architectural Design",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&q=70",
+        image: "/images/project-architecture-1.svg",
     },
     {
         id: 5,
@@ -45,7 +45,7 @@ const projects = [
         titleEn: "Industrial Facility - MODON",
         categoryAr: "امتثال MODON",
         categoryEn: "MODON Compliance",
-        image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=700&q=70",
+        image: "/images/project-architecture-2.svg",
     },
     {
         id: 6,
@@ -53,7 +53,7 @@ const projects = [
         titleEn: "Hotel Interior Design",
         categoryAr: "تصميم داخلي",
         categoryEn: "Interior Design",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=70",
+        image: "/images/project-architecture-3.svg",
     },
 ];
 

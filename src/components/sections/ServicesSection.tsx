@@ -52,12 +52,12 @@ const serviceKeys = ["consulting", "safety", "supervision", "interior", "factory
 type ServiceKey = typeof serviceKeys[number];
 
 const serviceImages: Record<ServiceKey, string> = {
-    consulting: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=70",
-    safety: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70",
-    supervision: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=70",
-    interior: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=70",
-    factory: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=70",
-    modon: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=70",
+    consulting: "/images/service-bg-1.svg",
+    safety: "/images/service-bg-2.svg",
+    supervision: "/images/service-bg-3.svg",
+    interior: "/images/service-bg-1.svg",
+    factory: "/images/service-bg-2.svg",
+    modon: "/images/service-bg-3.svg",
 };
 
 function ServiceCard({

@@ -37,8 +37,8 @@ export function CTASection() {
                 }}
             >
                 <Image
-                    src="https://images.unsplash.com/photo-1460574283810-2aab119d8511?w=1920&q=75"
-                    alt="CTA background"
+                    src="/images/cta-architecture.svg"
+                    alt="CTA illustration"
                     fill
                     style={{ objectFit: "cover" }}
                 />

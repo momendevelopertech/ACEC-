@@ -42,8 +42,8 @@ export function HeroSection() {
                 }}
             >
                 <Image
-                    src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80"
-                    alt="Engineering architecture background"
+                    src="/images/hero-architecture.svg"
+                    alt="Engineering architecture illustration"
                     fill
                     priority
                     style={{ objectFit: "cover", objectPosition: "center" }}

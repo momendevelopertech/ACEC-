@@ -3,6 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import type { Metadata } from "next";
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
     title: "المشاريع | Projects",
     description: "مشاريعنا المميزة في المملكة العربية السعودية",
@@ -14,13 +16,13 @@ export default function ProjectsPage() {
             <Navbar />
             <main style={{ paddingTop: "80px" }}>
                 <div
-                    style={{
-                        padding: "5rem 1.5rem 2rem",
-                        background:
-                            "linear-gradient(180deg, rgba(201, 168, 76, 0.04) 0%, transparent 100%)",
-                        borderBottom: "1px solid var(--color-border)",
-                        textAlign: "center",
-                    }}
+                style={{
+                    padding: "5rem 1.5rem 2rem",
+                    background:
+                        "linear-gradient(180deg, rgba(var(--color-gold-rgb), 0.04) 0%, transparent 100%)",
+                    borderBottom: "1px solid var(--color-border)",
+                    textAlign: "center",
+                }}
                 >
                     <div className="container-custom">
                         <div className="section-label" style={{ justifyContent: "center", marginBottom: "1rem" }}>

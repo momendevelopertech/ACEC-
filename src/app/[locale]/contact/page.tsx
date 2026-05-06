@@ -4,6 +4,8 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { ClientsSection } from "@/components/sections/ClientsSection";
 import type { Metadata } from "next";
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
     title: "تواصل معنا | Contact",
     description: "تواصل مع مكتب الميثاق العربي للاستشارات الهندسية — نحن هنا للإجابة على جميع استفساراتك",
@@ -44,12 +46,12 @@ export default function ContactPage() {
                                     <span className="gold-text">معنا</span>
                                 </h1>
                                 <p
-                                    style={{
-                                        color: "rgba(245, 245, 240, 0.6)",
-                                        lineHeight: 1.8,
-                                        marginBottom: "3rem",
-                                        fontSize: "1rem",
-                                    }}
+                                style={{
+                                    color: "rgba(var(--color-text-rgb), 0.6)",
+                                    lineHeight: 1.8,
+                                    marginBottom: "3rem",
+                                    fontSize: "1rem",
+                                }}
                                 >
                                     نحن هنا للإجابة على جميع استفساراتك وتقديم الاستشارات الهندسية اللازمة.
                                     لا تتردد في التواصل معنا.
@@ -90,8 +92,8 @@ export default function ContactPage() {
                                                     width: "48px",
                                                     height: "48px",
                                                     borderRadius: "var(--radius-sm)",
-                                                    background: "rgba(201, 168, 76, 0.08)",
-                                                    border: "1px solid rgba(201, 168, 76, 0.15)",
+                                                background: "rgba(var(--color-gold-rgb), 0.08)",
+                                                border: "1px solid rgba(var(--color-gold-rgb), 0.15)",
                                                     display: "flex",
                                                     alignItems: "center",
                                                     justifyContent: "center",

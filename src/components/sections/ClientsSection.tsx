@@ -49,7 +49,7 @@ export function ClientsSection() {
         <section
             style={{
                 padding: "6rem 1.5rem",
-                background: "linear-gradient(180deg, transparent 0%, rgba(201, 168, 76, 0.02) 100%)",
+                background: "linear-gradient(180deg, transparent 0%, rgba(var(--color-gold-rgb), 0.02) 100%)",
                 borderTop: "1px solid var(--color-border)",
             }}
         >
@@ -73,7 +73,7 @@ export function ClientsSection() {
                             fontFamily: "var(--font-heading)",
                             fontSize: "clamp(2rem, 5vw, 3rem)",
                             fontWeight: 700,
-                            color: "var(--color-white)",
+                            color: "var(--color-text)",
                             marginBottom: "1rem",
                         }}
                     >
@@ -92,7 +92,7 @@ export function ClientsSection() {
                     <p
                         style={{
                             fontSize: "1.0625rem",
-                            color: "rgba(245, 245, 240, 0.6)",
+                            color: "var(--color-text-muted)",
                             maxWidth: "600px",
                             margin: "0 auto",
                             lineHeight: 1.6,
@@ -127,8 +127,8 @@ export function ClientsSection() {
                                 justifyContent: "center",
                                 padding: "2rem",
                                 borderRadius: "var(--radius-lg)",
-                                background: "rgba(18, 18, 26, 0.6)",
-                                border: "1px solid rgba(201, 168, 76, 0.1)",
+                                background: "var(--color-card-bg)",
+                                border: "1px solid var(--color-border-gold)",
                                 backdropFilter: "blur(10px)",
                                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                                 cursor: "pointer",
@@ -137,20 +137,20 @@ export function ClientsSection() {
                                 overflow: "hidden",
                             }}
                             whileHover={{
-                                borderColor: "rgba(201, 168, 76, 0.3)",
-                                background: "rgba(18, 18, 26, 0.8)",
+                                borderColor: "var(--color-border-gold)",
+                                background: "var(--color-surface)",
                                 scale: 1.05,
                                 y: -4,
                             }}
                             className="client-card"
                         >
-                            {/* Card background effect */}
+                                {/* Card background effect */}
                             <div
                                 style={{
                                     position: "absolute",
                                     inset: 0,
                                     background:
-                                        "linear-gradient(135deg, rgba(201, 168, 76, 0.1) 0%, transparent 100%)",
+                                        "linear-gradient(135deg, var(--color-gold-dim) 0%, transparent 100%)",
                                     opacity: 0,
                                     transition: "opacity 0.3s",
                                     pointerEvents: "none",
@@ -196,7 +196,7 @@ export function ClientsSection() {
                                     style={{
                                         fontSize: "0.8rem",
                                         fontWeight: 600,
-                                        color: "var(--color-muted)",
+                                        color: "var(--color-text-muted)",
                                         transition: "color 0.3s",
                                     }}
                                     className="client-name"
@@ -224,7 +224,7 @@ export function ClientsSection() {
                     <p
                         style={{
                             fontSize: "1rem",
-                            color: "rgba(245, 245, 240, 0.7)",
+                            color: "rgba(var(--color-text-rgb), 0.7)",
                             marginBottom: "1.5rem",
                         }}
                     >
@@ -249,7 +249,7 @@ export function ClientsSection() {
                             fontSize: "1rem",
                             cursor: "pointer",
                             textDecoration: "none",
-                            boxShadow: "0 4px 15px rgba(201, 168, 76, 0.3)",
+                            boxShadow: "0 4px 15px rgba(var(--color-gold-rgb), 0.3)",
                             transition: "all 0.3s",
                         }}
                     >

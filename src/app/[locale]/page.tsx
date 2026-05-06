@@ -9,6 +9,8 @@ import { WhySection } from "@/components/sections/WhySection";
 import { CTASection } from "@/components/sections/CTASection";
 import { ClientsSection } from "@/components/sections/ClientsSection";
 
+export const dynamic = 'force-static';
+
 export default function HomePage() {
     return (
         <>

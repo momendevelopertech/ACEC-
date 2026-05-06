@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { sendContactForm } from "@/lib/contactFormService";
+import { submitContactForm } from "@/lib/contactFormService";
 
 export function ContactForm() {
     const t = useTranslations("contact");
@@ -30,11 +30,13 @@ export function ContactForm() {
         setErrorMessage("");
 
         try {
-            // Send only required fields to Supabase
-            const response = await sendContactForm({
+            const response = await submitContactForm({
                 name: formData.name,
                 email: formData.email,
+                phone: formData.phone,
                 message: formData.message,
+                service_type: formData.service_interest,
+                lang: locale,
             });
 
             if (response.success) {
@@ -160,8 +162,8 @@ export function ContactForm() {
                     style={{
                         padding: "1rem",
                         borderRadius: "var(--radius-sm)",
-                        background: "rgba(201, 168, 76, 0.1)",
-                        border: "1px solid rgba(201, 168, 76, 0.3)",
+                        background: "rgba(var(--color-gold-rgb), 0.1)",
+                        border: "1px solid rgba(var(--color-gold-rgb), 0.3)",
                         color: "var(--color-gold)",
                         fontSize: "0.9rem",
                         textAlign: "center",

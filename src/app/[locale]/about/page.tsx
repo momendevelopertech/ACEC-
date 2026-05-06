@@ -4,6 +4,8 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { WhySection } from "@/components/sections/WhySection";
 import type { Metadata } from "next";
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
     title: "عن المكتب | About",
     description: "مكتب الميثاق العربي للاستشارات الهندسية وهندسة السلامة — تعرف على مكتبنا وفريقنا",

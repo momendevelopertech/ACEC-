@@ -56,8 +56,8 @@ export function WhySection() {
                 style={{
                     position: "absolute",
                     inset: 0,
-                    backgroundImage:
-                        "radial-gradient(rgba(201, 168, 76, 0.08) 1px, transparent 1px)",
+                backgroundImage:
+                    "radial-gradient(rgba(var(--color-gold-rgb), 0.08) 1px, transparent 1px)",
                     backgroundSize: "32px 32px",
                     zIndex: 0,
                 }}
@@ -108,7 +108,7 @@ export function WhySection() {
                             style={{
                                 padding: "2rem",
                                 borderRadius: "var(--radius-lg)",
-                                background: "rgba(10, 10, 15, 0.6)",
+                                background: "rgba(var(--color-bg-rgb), 0.6)",
                                 border: "1px solid var(--color-border)",
                                 transition: "border-color 0.3s, transform 0.3s",
                                 textAlign: "center",
@@ -121,8 +121,8 @@ export function WhySection() {
                                     width: "64px",
                                     height: "64px",
                                     borderRadius: "50%",
-                                    background: "rgba(201, 168, 76, 0.08)",
-                                    border: "1px solid rgba(201, 168, 76, 0.2)",
+                                    background: "rgba(var(--color-gold-rgb), 0.08)",
+                                    border: "1px solid rgba(var(--color-gold-rgb), 0.2)",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
@@ -162,11 +162,11 @@ export function WhySection() {
 
             <style>{`
         .why-card:hover {
-          border-color: rgba(201, 168, 76, 0.25) !important;
+          border-color: rgba(var(--color-gold-rgb), 0.25) !important;
           transform: translateY(-4px);
         }
         .why-card:hover .why-icon {
-          background: rgba(201, 168, 76, 0.15) !important;
+          background: rgba(var(--color-gold-rgb), 0.15) !important;
           border-color: var(--color-gold) !important;
           box-shadow: 0 0 20px rgba(201, 168, 76, 0.15);
         }

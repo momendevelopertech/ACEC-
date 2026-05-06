@@ -49,7 +49,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
         style={{
           paddingTop: "3rem",
           paddingBottom: "3rem",
-          background: "linear-gradient(180deg, rgba(201, 168, 76, 0.04) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(var(--color-gold-rgb), 0.04) 0%, transparent 100%)",
           borderBottom: "1px solid var(--color-border)",
         }}
       >
@@ -93,7 +93,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
               <p
                 style={{
                   fontSize: "1.125rem",
-                  color: "rgba(255, 255, 255, 0.7)",
+                  color: "rgba(var(--color-text-rgb), 0.7)",
                   marginBottom: "1.5rem",
                   lineHeight: 1.6,
                   maxWidth: "500px",
@@ -106,14 +106,14 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                 whileTap={{ scale: 0.95 }}
                 style={{
                   padding: "0.875rem 2rem",
-                  background: "linear-gradient(135deg, #c9a84c 0%, #e8c547 100%)",
+                  background: "linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%)",
                   border: "none",
                   borderRadius: "0.5rem",
-                  color: "#1a1a1a",
+                  color: "var(--color-bg)",
                   fontWeight: 600,
                   cursor: "pointer",
                   fontSize: "1rem",
-                  boxShadow: "0 4px 15px rgba(201, 168, 76, 0.3)",
+                  boxShadow: "0 4px 15px rgba(var(--color-gold-rgb), 0.3)",
                   transition: "all 0.3s ease",
                 }}
               >
@@ -142,7 +142,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "linear-gradient(135deg, rgba(201, 168, 76, 0.2) 0%, rgba(232, 197, 71, 0.1) 100%)",
+                  background: "linear-gradient(135deg, rgba(var(--color-gold-rgb), 0.2) 0%, rgba(var(--color-gold-light), 0.1) 100%)",
                 }}
               />
             </motion.div>
@@ -155,14 +155,14 @@ export function ServiceDetailClient({ service }: { service: Service }) {
         variants={itemVariants}
         style={{
           padding: "4rem 1.5rem",
-          background: "linear-gradient(180deg, transparent 0%, rgba(201, 168, 76, 0.02) 100%)",
+          background: "linear-gradient(180deg, transparent 0%, rgba(var(--color-gold-rgb), 0.02) 100%)",
         }}
       >
         <div className="container-custom">
           <p
             style={{
               fontSize: "1.125rem",
-              color: "rgba(255, 255, 255, 0.8)",
+              color: "rgba(var(--color-text-rgb), 0.8)",
               lineHeight: 1.8,
               maxWidth: "800px",
               margin: "0 auto",
@@ -212,7 +212,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                 style={{
                   padding: "2rem",
                   borderRadius: "1rem",
-                  background: "rgba(201, 168, 76, 0.05)",
+                  background: "rgba(var(--color-gold-rgb), 0.05)",
                   backdropFilter: "blur(10px)",
                 }}
               >
@@ -229,11 +229,11 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                       width: "40px",
                       height: "40px",
                       borderRadius: "50%",
-                      background: "linear-gradient(135deg, #c9a84c 0%, #e8c547 100%)",
+                      background: "linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      color: "#1a1a1a",
+                      color: "var(--color-bg)",
                       fontWeight: 700,
                       flexShrink: 0,
                     }}
@@ -262,7 +262,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
         variants={itemVariants}
         style={{
           padding: "4rem 1.5rem",
-          background: "linear-gradient(180deg, rgba(201, 168, 76, 0.02) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(var(--color-gold-rgb), 0.02) 0%, transparent 100%)",
         }}
       >
         <div className="container-custom">
@@ -297,8 +297,8 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                   gap: "1rem",
                   padding: "1.5rem",
                   borderRadius: "0.75rem",
-                  background: "rgba(201, 168, 76, 0.03)",
-                  border: "1px solid rgba(201, 168, 76, 0.1)",
+                  background: "rgba(var(--color-gold-rgb), 0.03)",
+                  border: "1px solid rgba(var(--color-gold-rgb), 0.1)",
                   alignItems: isArabic ? "flex-end" : "flex-start",
                 }}
               >
@@ -310,8 +310,8 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                     width: "32px",
                     height: "32px",
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, #c9a84c 0%, #e8c547 100%)",
-                    color: "#1a1a1a",
+                    background: "linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%)",
+                    color: "var(--color-bg)",
                     fontWeight: 700,
                     flexShrink: 0,
                   }}
@@ -320,7 +320,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                 </div>
                 <p
                   style={{
-                    color: "rgba(255, 255, 255, 0.8)",
+                    color: "rgba(var(--color-text-rgb), 0.8)",
                     fontSize: "1rem",
                     margin: 0,
                     textAlign: isArabic ? "right" : "left",
@@ -372,7 +372,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
                 style={{
                   padding: "2.5rem",
                   borderRadius: "1rem",
-                  background: "linear-gradient(135deg, rgba(201, 168, 76, 0.1) 0%, rgba(232, 197, 71, 0.05) 100%)",
+                  background: "linear-gradient(135deg, rgba(var(--color-gold-rgb), 0.1) 0%, rgba(var(--color-gold-light), 0.05) 100%)",
                   backdropFilter: "blur(10px)",
                   textAlign: "center",
                   cursor: "pointer",
@@ -401,7 +401,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
         variants={itemVariants}
         style={{
           padding: "4rem 1.5rem",
-          background: "linear-gradient(135deg, rgba(201, 168, 76, 0.1) 0%, rgba(232, 197, 71, 0.05) 100%)",
+          background: "linear-gradient(135deg, rgba(var(--color-gold-rgb), 0.1) 0%, rgba(var(--color-gold-light), 0.05) 100%)",
           borderTop: "1px solid var(--color-border)",
           textAlign: "center",
         }}
@@ -420,7 +420,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
           </h2>
           <p
             style={{
-              color: "rgba(255, 255, 255, 0.7)",
+              color: "rgba(var(--color-text-rgb), 0.7)",
               marginBottom: "2rem",
               fontSize: "1.125rem",
             }}
@@ -434,14 +434,14 @@ export function ServiceDetailClient({ service }: { service: Service }) {
             whileTap={{ scale: 0.95 }}
             style={{
               padding: "1rem 2.5rem",
-              background: "linear-gradient(135deg, #c9a84c 0%, #e8c547 100%)",
+              background: "linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%)",
               border: "none",
               borderRadius: "0.5rem",
-              color: "#1a1a1a",
+              color: "var(--color-bg)",
               fontWeight: 600,
               cursor: "pointer",
               fontSize: "1.125rem",
-              boxShadow: "0 6px 20px rgba(201, 168, 76, 0.4)",
+              boxShadow: "0 6px 20px rgba(var(--color-gold-rgb), 0.4)",
               transition: "all 0.3s ease",
             }}
           >

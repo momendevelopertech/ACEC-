@@ -21,7 +21,7 @@ export function AboutSection() {
             style={{
                 position: "relative",
                 background:
-                    "linear-gradient(135deg, rgba(42, 74, 138, 0.05) 0%, transparent 100%)",
+                    "linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.05) 0%, transparent 100%)",
             }}
         >
             <div className="container-custom">
@@ -47,14 +47,14 @@ export function AboutSection() {
                         </motion.div>
 
                         <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={inView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.6, delay: 0.1 }}
+                            initial={{ opacity:0, y:20 }}
+                            animate={inView ? { opacity:1, y:0 } : {}}
+                            transition={{ duration:0.6, delay:0.1 }}
                             style={{
                                 fontFamily: "var(--font-heading)",
                                 fontSize: "clamp(2rem, 3.5vw, 3rem)",
                                 fontWeight: 700,
-                                color: "var(--color-white)",
+                                color: "var(--color-text)",
                                 lineHeight: 1.2,
                                 marginBottom: "1.5rem",
                             }}
@@ -63,12 +63,12 @@ export function AboutSection() {
                         </motion.h2>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={inView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            initial={{ opacity:0, y:20 }}
+                            animate={inView ? { opacity:1, y:0 } : {}}
+                            transition={{ duration:0.6, delay:0.2 }}
                             style={{
                                 fontSize: "1rem",
-                                color: "rgba(245, 245, 240, 0.65)",
+                                color: "var(--color-text-muted)",
                                 lineHeight: 1.8,
                                 marginBottom: "2.5rem",
                             }}
@@ -103,7 +103,7 @@ export function AboutSection() {
                                         flexShrink: 0,
                                     }}
                                 />
-                                <span style={{ color: "rgba(245, 245, 240, 0.75)", fontSize: "0.9375rem" }}>
+                                <span style={{ color: "rgba(var(--color-text-rgb), 0.75)", fontSize: "0.9375rem" }}>
                                     {point}
                                 </span>
                             </motion.div>
@@ -149,7 +149,7 @@ export function AboutSection() {
                                 position: "absolute",
                                 inset: 0,
                                 background:
-                                    "linear-gradient(135deg, rgba(10,10,15,0.3) 0%, transparent 60%)",
+                                    "linear-gradient(135deg, rgba(var(--color-bg-rgb),0.3) 0%, transparent 60%)",
                             }}
                         />
 
@@ -160,9 +160,9 @@ export function AboutSection() {
                                 bottom: "2rem",
                                 left: isRTL ? "auto" : "2rem",
                                 right: isRTL ? "2rem" : "auto",
-                                background: "rgba(10, 10, 15, 0.85)",
+                                background: "rgba(var(--color-bg-rgb), 0.85)",
                                 backdropFilter: "blur(20px)",
-                                border: "1px solid rgba(201, 168, 76, 0.25)",
+                                border: "1px solid rgba(var(--color-gold-rgb), 0.25)",
                                 borderRadius: "var(--radius-md)",
                                 padding: "1.25rem 1.5rem",
                             }}

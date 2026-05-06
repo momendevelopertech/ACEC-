@@ -78,9 +78,9 @@ export function StatsSection() {
                     position: "absolute",
                     inset: 0,
                     background:
-                        "linear-gradient(180deg, transparent 0%, rgba(201, 168, 76, 0.04) 50%, transparent 100%)",
-                    borderTop: "1px solid rgba(201, 168, 76, 0.08)",
-                    borderBottom: "1px solid rgba(201, 168, 76, 0.08)",
+                        "linear-gradient(180deg, transparent 0%, rgba(var(--color-gold-rgb), 0.04) 50%, transparent 100%)",
+                    borderTop: "1px solid rgba(var(--color-gold-rgb), 0.08)",
+                    borderBottom: "1px solid rgba(var(--color-gold-rgb), 0.08)",
                 }}
             />
 
@@ -106,8 +106,8 @@ export function StatsSection() {
                                 gap: "0.75rem",
                                 padding: "2rem",
                                 borderRadius: "var(--radius-lg)",
-                                background: "rgba(201, 168, 76, 0.04)",
-                                border: "1px solid rgba(201, 168, 76, 0.08)",
+                                background: "rgba(var(--color-gold-rgb), 0.04)",
+                                border: "1px solid rgba(var(--color-gold-rgb), 0.08)",
                                 transition: "background 0.3s",
                             }}
                             className="stat-card"
@@ -136,7 +136,7 @@ export function StatsSection() {
 
             <style>{`
         .stat-card:hover {
-          background: rgba(201, 168, 76, 0.08) !important;
+          background: rgba(var(--color-gold-rgb), 0.08) !important;
         }
       `}</style>
         </section>

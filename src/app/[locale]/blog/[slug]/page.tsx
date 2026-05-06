@@ -14,12 +14,12 @@ export async function generateStaticParams() {
 
   for (const locale of locales) {
     try {
-      const res = await fetch(`${API_BASE}/api/v1/services/${locale}`);
+      const res = await fetch(`${API_BASE}/api/v1/blog/${locale}`);
       if (res.ok) {
         const json = await res.json();
         if (json.data) {
-          for (const service of json.data) {
-            params.push({ locale, slug: service.slug });
+          for (const post of json.data) {
+            params.push({ locale, slug: post.slug });
           }
         }
       }
@@ -42,40 +42,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isAr = locale === "ar";
 
   try {
-    const res = await fetch(`${API_BASE}/api/v1/services/${slug}/${locale}`, {
+    const res = await fetch(`${API_BASE}/api/v1/blog/${slug}/${locale}`, {
       cache: 'no-store',
     });
-    if (!res.ok) return { title: isAr ? "الخدمة غير موجودة" : "Service Not Found" };
+    if (!res.ok) return { title: isAr ? "المقال غير موجود" : "Post Not Found" };
     const json = await res.json();
-    const service = json.data;
-    if (!service) return { title: isAr ? "الخدمة غير موجودة" : "Service Not Found" };
+    const post = json.data;
+    if (!post) return { title: isAr ? "المقال غير موجود" : "Post Not Found" };
 
     return {
-      title: `${service.title} | ACEC`,
-      description: service.description,
+      title: `${post.title} | ACEC`,
+      description: post.excerpt,
     };
   } catch {
-    return { title: isAr ? "الخدمة غير موجودة" : "Service Not Found" };
+    return { title: isAr ? "المقال غير موجود" : "Post Not Found" };
   }
 }
 
-export default async function ServiceDetailPage({ params }: Props) {
+export default async function BlogDetailPage({ params }: Props) {
   const { slug, locale } = await params;
   const isAr = locale === "ar";
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
 
-  let service = null;
+  let post = null;
   try {
-    const res = await fetch(`${API_BASE}/api/v1/services/${slug}/${locale}`, {
+    const res = await fetch(`${API_BASE}/api/v1/blog/${slug}/${locale}`, {
       cache: 'no-store',
     });
     if (res.ok) {
       const json = await res.json();
-      service = json.data;
+      post = json.data;
     }
   } catch {}
 
-  if (!service) {
+  if (!post) {
     notFound();
   }
 
@@ -89,65 +89,74 @@ export default async function ServiceDetailPage({ params }: Props) {
             padding: "4rem 1.5rem 3rem",
             background: "linear-gradient(180deg, var(--color-surface) 0%, transparent 100%)",
             borderBottom: "1px solid var(--color-border)",
+            textAlign: "center",
           }}
         >
           <div className="container-custom" style={{ maxWidth: "800px" }}>
-            <div
-              className="section-label"
-              style={{ marginBottom: "1rem", justifyContent: "center" }}
-            >
-              ACEC SERVICE
-            </div>
+            {post.category && (
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  color: "var(--color-gold)",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  marginBottom: "1rem",
+                  display: "inline-block",
+                }}
+              >
+                {post.category}
+              </span>
+            )}
             <h1
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                fontSize: "clamp(2rem, 5vw, 3rem)",
                 fontWeight: 700,
                 color: "var(--color-white)",
                 marginBottom: "1rem",
-                textAlign: "center",
                 lineHeight: 1.3,
               }}
             >
-              {service.title}
+              {post.title}
             </h1>
-            {service.meta_title && (
-              <p
-                style={{
-                  textAlign: "center",
-                  color: "var(--color-gold)",
-                  fontSize: "0.9rem",
-                  fontWeight: 600,
-                  marginBottom: "1rem",
-                }}
-              >
-                {service.meta_title}
+            {post.published_at && (
+              <p style={{ color: "var(--color-muted)", fontSize: "0.9rem" }}>
+                {new Date(post.published_at).toLocaleDateString(isAr ? "ar-SA" : "en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </p>
             )}
           </div>
         </section>
 
-        {/* Service Content */}
-        <section style={{ padding: "4rem 1.5rem 6rem" }}>
-          <div className="container-custom" style={{ maxWidth: "800px" }}>
-            {service.image && (
+        {/* Featured Image */}
+        {post.image && (
+          <section style={{ padding: "3rem 1.5rem" }}>
+            <div className="container-custom" style={{ maxWidth: "900px" }}>
               <div
                 style={{
                   height: "400px",
                   borderRadius: "var(--radius-lg)",
                   overflow: "hidden",
-                  marginBottom: "3rem",
                 }}
                 className="responsive-height"
               >
                 <img
-                  src={`${API_BASE}/storage/${service.image}`}
-                  alt={service.title}
+                  src={`${API_BASE}/storage/${post.image}`}
+                  alt={post.title}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
-            )}
+            </div>
+          </section>
+        )}
 
+        {/* Blog Content */}
+        <section style={{ padding: "3rem 1.5rem 6rem" }}>
+          <div className="container-custom" style={{ maxWidth: "800px" }}>
             <article
               style={{
                 color: "rgba(var(--color-text-rgb), 0.8)",
@@ -155,13 +164,13 @@ export default async function ServiceDetailPage({ params }: Props) {
                 fontSize: "1.125rem",
                 textAlign: isAr ? "right" : "left",
               }}
-              dangerouslySetInnerHTML={{ __html: service.content || service.description }}
+              dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            {/* Back to services */}
+            {/* Back to blog */}
             <div style={{ textAlign: "center", marginTop: "3rem" }}>
               <a
-                href={`/${locale}/services`}
+                href={`/${locale}/blog`}
                 style={{
                   color: "var(--color-gold)",
                   textDecoration: "none",
@@ -172,7 +181,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                   gap: "0.5rem",
                 }}
               >
-                {isAr ? "العودة للخدمات" : "Back to Services"}
+                {isAr ? "العودة للمدونة" : "Back to Blog"}
                 <svg
                   width="16"
                   height="16"
@@ -201,7 +210,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             height: 300px !important;
           }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
           .responsive-height {
             height: 250px !important;
           }

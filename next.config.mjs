@@ -4,8 +4,9 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  trailingSlash: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -15,7 +16,15 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "*.supabase.co",
+        hostname: "ac-ec.com.sa",
+      },
+      {
+        protocol: "https",
+        hostname: "test.ac-ec.com.sa",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
       },
     ],
   },

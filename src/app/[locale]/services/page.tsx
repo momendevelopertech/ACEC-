@@ -3,6 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import type { Metadata } from "next";
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
     title: "الخدمات | Services",
     description: "خدماتنا الهندسية المتكاملة — استشارات، سلامة، إشراف، تصميم داخلي، وتصميم مصانع",

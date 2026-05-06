@@ -54,7 +54,7 @@ export function HeroSection() {
                         position: "absolute",
                         inset: 0,
                         background:
-                            "linear-gradient(135deg, rgba(10,10,15,0.9) 0%, rgba(10,10,15,0.6) 50%, rgba(10,10,15,0.85) 100%)",
+                            "linear-gradient(135deg, rgba(var(--color-bg-rgb),0.9) 0%, rgba(var(--color-bg-rgb),0.6) 50%, rgba(var(--color-bg-rgb),0.85) 100%)",
                     }}
                 />
                 {/* Gold accent overlay */}
@@ -63,21 +63,21 @@ export function HeroSection() {
                         position: "absolute",
                         inset: 0,
                         background:
-                            "radial-gradient(ellipse at 20% 50%, rgba(42, 74, 138, 0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%)",
+                            "radial-gradient(ellipse at 20% 50%, rgba(var(--color-accent-rgb), 0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(var(--color-gold-rgb), 0.08) 0%, transparent 50%)",
                     }}
                 />
             </motion.div>
 
             {/* Animated grid lines */}
             <div
-                style={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundImage:
-                        "linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px)",
-                    backgroundSize: "80px 80px",
-                    zIndex: 1,
-                }}
+            style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage:
+                    "linear-gradient(rgba(var(--color-gold-rgb), 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--color-gold-rgb), 0.03) 1px, transparent 1px)",
+                backgroundSize: "80px 80px",
+                zIndex: 1,
+            }}
             />
 
             {/* Content */}
@@ -129,7 +129,7 @@ export function HeroSection() {
                         transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
                         style={{
                             fontSize: "clamp(1rem, 2vw, 1.25rem)",
-                            color: "rgba(245, 245, 240, 0.65)",
+                            color: "rgba(var(--color-text-rgb), 0.65)",
                             maxWidth: "540px",
                             lineHeight: 1.7,
                             marginBottom: "2.5rem",

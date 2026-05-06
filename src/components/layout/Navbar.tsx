@@ -37,10 +37,20 @@ export function Navbar() {
         router.push(segments.join("/") || `/${newLocale}`);
     };
 
-    const navLinks = [
+    // High priority links - shown in main nav
+    const mainNavLinks = [
         { href: `/${locale}/services`, label: t("services") },
         { href: `/${locale}/projects`, label: t("projects") },
         { href: `/${locale}/about`, label: t("about") },
+        { href: `/${locale}/team`, label: t("team") },
+        { href: `/${locale}/clients`, label: t("clients") },
+    ];
+
+    // Secondary links - shown in mobile menu or footer
+    const secondaryNavLinks = [
+        { href: `/${locale}/blog`, label: t("blog") },
+        { href: `/${locale}/certifications`, label: t("certifications") },
+        { href: `/${locale}/career`, label: t("career") },
         { href: `/${locale}/contact`, label: t("contact") },
     ];
 
@@ -55,11 +65,11 @@ export function Navbar() {
                 transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
                 padding: scrolled ? "0.75rem 1rem" : "1rem 1rem",
                 background: scrolled
-                    ? "rgba(10, 10, 15, 0.9)"
+                    ? "var(--color-header-bg)"
                     : "transparent",
                 backdropFilter: scrolled ? "blur(24px)" : "none",
                 borderBottom: scrolled
-                    ? "1px solid rgba(201, 168, 76, 0.1)"
+                    ? "1px solid var(--color-border-gold)"
                     : "none",
             }}
         >
@@ -90,12 +100,12 @@ export function Navbar() {
                     }}
                     className="hidden-mobile"
                 >
-                    {navLinks.map((link) => (
+                    {mainNavLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
                             style={{
-                                color: "var(--color-white)",
+                                color: "var(--color-text)",
                                 textDecoration: "none",
                                 fontSize: "0.95rem",
                                 fontWeight: 600,
@@ -117,8 +127,8 @@ export function Navbar() {
                     <button
                         onClick={switchLocale}
                         style={{
-                            background: "rgba(201, 168, 76, 0.08)",
-                            border: "1px solid rgba(201, 168, 76, 0.25)",
+                            background: "var(--color-gold-dim)",
+                            border: "1px solid var(--color-border-gold)",
                             borderRadius: "9999px",
                             color: "var(--color-gold)",
                             fontSize: "0.8rem",
@@ -146,8 +156,8 @@ export function Navbar() {
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         style={{
-                            background: "rgba(255, 255, 255, 0.08)",
-                            border: "1px solid rgba(255, 255, 255, 0.12)",
+                            background: "var(--color-gold-dim)",
+                            border: "1px solid var(--color-border-gold)",
                             borderRadius: "999px",
                             cursor: "pointer",
                             display: "flex",
@@ -192,7 +202,7 @@ export function Navbar() {
                     position: "fixed",
                     inset: 0,
                     top: 0,
-                    background: "rgba(10, 10, 15, 0.97)",
+                    background: "var(--color-bg)",
                     backdropFilter: "blur(30px)",
                     zIndex: 1001,
                     display: "flex",
@@ -216,9 +226,9 @@ export function Navbar() {
                         width: "2.8rem",
                         height: "2.8rem",
                         borderRadius: "999px",
-                        border: "1px solid rgba(255, 255, 255, 0.15)",
-                        background: "rgba(255, 255, 255, 0.08)",
-                        color: "var(--color-white)",
+                        border: "1px solid var(--color-border)",
+                        background: "var(--color-surface)",
+                        color: "var(--color-text)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -229,27 +239,27 @@ export function Navbar() {
                 >
                     ×
                 </button>
-                {navLinks.map((link, i) => (
-                    <Link
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setMenuOpen(false)}
-                        style={{
-                            color: "var(--color-white)",
-                            textDecoration: "none",
-                            fontSize: "2rem",
-                            fontFamily: "var(--font-heading)",
-                            fontWeight: 600,
-                            transition: "color 0.2s",
-                            transform: menuOpen
-                                ? "translateY(0)"
-                                : "translateY(20px)",
-                            transitionDelay: `${i * 0.05}s`,
-                        }}
-                    >
-                        {link.label}
-                    </Link>
-                ))}
+                    {[...mainNavLinks, ...secondaryNavLinks].map((link, i) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setMenuOpen(false)}
+                            style={{
+                                color: "var(--color-text)",
+                                textDecoration: "none",
+                                fontSize: "2rem",
+                                fontFamily: "var(--font-heading)",
+                                fontWeight: 600,
+                                transition: "color 0.2s",
+                                transform: menuOpen
+                                    ? "translateY(0)"
+                                    : "translateY(20px)",
+                                transitionDelay: `${i * 0.05}s`,
+                            }}
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
                 <Link
                     href={`/${locale}/contact`}
                     onClick={() => setMenuOpen(false)}
@@ -270,8 +280,8 @@ export function Navbar() {
           .show-mobile { display: flex !important; }
         }
         .nav-link:hover {
-          color: var(--color-white) !important;
-          background: rgba(201, 168, 76, 0.08);
+          color: var(--color-text) !important;
+          background: var(--color-gold-dim);
         }
       `}</style>
         </header>

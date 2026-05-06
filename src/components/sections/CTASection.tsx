@@ -43,19 +43,27 @@ export function CTASection() {
                     style={{ objectFit: "cover" }}
                 />
                 <div
+                style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                        "linear-gradient(135deg, rgba(var(--color-bg-rgb),0.88) 0%, rgba(var(--color-bg-rgb),0.75) 100%)",
+                }}
+                />
+                <div
                     style={{
                         position: "absolute",
-                        inset: 0,
+                        inset:0,
                         background:
-                            "linear-gradient(135deg, rgba(10,10,15,0.88) 0%, rgba(10,10,15,0.75) 100%)",
+                            "radial-gradient(ellipse at center, var(--color-gold-dim) 0%, transparent 70%)",
                     }}
                 />
                 <div
                     style={{
                         position: "absolute",
                         inset: 0,
-                        background:
-                            "radial-gradient(ellipse at center, rgba(201, 168, 76, 0.08) 0%, transparent 70%)",
+                        backgroundImage:
+                            "radial-gradient(ellipse at center, rgba(var(--color-gold-rgb), 0.08) 0%, transparent 70%)",
                     }}
                 />
             </motion.div>
@@ -76,8 +84,8 @@ export function CTASection() {
                             width: "72px",
                             height: "72px",
                             borderRadius: "50%",
-                            background: "rgba(201, 168, 76, 0.12)",
-                            border: "1px solid rgba(201, 168, 76, 0.3)",
+                            background: "var(--color-gold-dim)",
+                            border: "1px solid var(--color-border-gold)",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -107,7 +115,7 @@ export function CTASection() {
                             fontFamily: "var(--font-heading)",
                             fontSize: "clamp(2rem, 5vw, 4rem)",
                             fontWeight: 700,
-                            color: "var(--color-white)",
+                            color: "var(--color-text)",
                             marginBottom: "1rem",
                             lineHeight: 1.2,
                         }}
@@ -118,7 +126,7 @@ export function CTASection() {
                     <p
                         style={{
                             fontSize: "1.125rem",
-                            color: "rgba(245, 245, 240, 0.65)",
+                            color: "var(--color-text-muted)",
                             marginBottom: "2.5rem",
                             maxWidth: "480px",
                             margin: "0 auto 2.5rem",

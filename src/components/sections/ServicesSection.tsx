@@ -1,11 +1,21 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
-const serviceIcons = {
+export interface Service {
+  id: number;
+  slug: string;
+  icon: string;
+  title: string;
+  description: string;
+  image: string;
+  is_featured: boolean;
+}
+
+const serviceIcons: Record<string, React.ReactNode> = {
     consulting: (
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
             <path d="M4 28V12L16 4L28 12V28H20V20H12V28H4Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
@@ -48,28 +58,15 @@ const serviceIcons = {
     ),
 };
 
-const serviceKeys = ["consulting", "safety", "supervision", "interior", "factory", "modon"] as const;
-type ServiceKey = typeof serviceKeys[number];
-
-const serviceImages: Record<ServiceKey, string> = {
-    consulting: "/images/service-bg-1.svg",
-    safety: "/images/service-bg-2.svg",
-    supervision: "/images/service-bg-3.svg",
-    interior: "/images/service-bg-1.svg",
-    factory: "/images/service-bg-2.svg",
-    modon: "/images/service-bg-3.svg",
-};
-
 function ServiceCard({
-    serviceKey,
+    service,
     index,
     inView,
 }: {
-    serviceKey: ServiceKey;
+    service: Service;
     index: number;
     inView: boolean;
 }) {
-    const t = useTranslations("services");
     const locale = useLocale();
 
     return (
@@ -80,7 +77,7 @@ function ServiceCard({
             className="service-card gradient-border"
             style={{
                 position: "relative",
-                background: "rgba(18, 18, 26, 0.5)",
+                background: "var(--color-card-bg)",
                 backdropFilter: "blur(20px)",
                 padding: "2rem",
                 borderRadius: "var(--radius-lg)",
@@ -89,32 +86,6 @@ function ServiceCard({
                 willChange: "transform",
             }}
         >
-            {/* Background image on hover */}
-            <div
-                className="card-bg-image"
-                style={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundImage: `url(${serviceImages[serviceKey]})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    opacity: 0,
-                    transition: "opacity 0.5s ease",
-                    zIndex: 0,
-                }}
-            />
-            <div
-                className="card-bg-overlay"
-                style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                        "linear-gradient(135deg, rgba(10,10,15,0.97) 0%, rgba(10,10,15,0.85) 100%)",
-                    zIndex: 1,
-                    transition: "background 0.5s ease",
-                }}
-            />
-
             {/* Content */}
             <div style={{ position: "relative", zIndex: 2 }}>
                 {/* Icon */}
@@ -124,8 +95,8 @@ function ServiceCard({
                         width: "64px",
                         height: "64px",
                         borderRadius: "var(--radius-md)",
-                        background: "rgba(201, 168, 76, 0.08)",
-                        border: "1px solid rgba(201, 168, 76, 0.2)",
+                        background: "var(--color-gold-dim)",
+                        border: "1px solid var(--color-border-gold)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -134,7 +105,7 @@ function ServiceCard({
                         transition: "all 0.3s ease",
                     }}
                 >
-                    {serviceIcons[serviceKey]}
+                    {serviceIcons[service.slug] || serviceIcons.consulting}
                 </div>
 
                 {/* Title */}
@@ -143,30 +114,30 @@ function ServiceCard({
                         fontFamily: "var(--font-heading)",
                         fontSize: "1.25rem",
                         fontWeight: 600,
-                        color: "var(--color-white)",
+                        color: "var(--color-text)",
                         marginBottom: "0.75rem",
                         transition: "color 0.3s",
                     }}
                 >
-                    {t(`items.${serviceKey}.title`)}
+                    {service.title}
                 </h3>
 
                 {/* Description */}
                 <p
                     style={{
                         fontSize: "0.9rem",
-                        color: "var(--color-muted)",
+                        color: "var(--color-text-muted)",
                         lineHeight: 1.7,
                         marginBottom: "1.5rem",
                         minHeight: "3.5rem",
                     }}
                 >
-                    {t(`items.${serviceKey}.description`)}
+                    {service.description}
                 </p>
 
                 {/* Learn more */}
                 <Link
-                    href={`/${locale}/services/${serviceKey}`}
+                    href={`/${locale}/services/${service.slug}`}
                     style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -179,7 +150,7 @@ function ServiceCard({
                     }}
                     className="learn-more-link"
                 >
-                    {t("learnMore")}
+                    {locale === "ar" ? "اقرأ المزيد" : "Learn More"}
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path
                             d="M3 8H13M13 8L9 4M13 8L9 12"
@@ -199,6 +170,27 @@ export function ServicesSection() {
     const t = useTranslations("services");
     const ref = useRef<HTMLElement>(null);
     const inView = useInView(ref, { once: true, margin: "-80px" });
+    const [services, setServices] = useState<Service[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
+        // Get locale from html lang attribute or default to 'ar'
+        let locale = 'ar';
+        if (typeof window !== "undefined") {
+            locale = document.documentElement.lang || 'ar';
+        }
+
+        fetch(`${API_BASE}/api/v1/services/${locale}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.data) {
+                    setServices(data.data);
+                }
+                setLoading(false);
+            })
+            .catch(() => setLoading(false));
+    }, []);
 
     return (
         <section
@@ -220,14 +212,14 @@ export function ServicesSection() {
                 </motion.div>
 
                 <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.1 }}
+                    initial={{ opacity:0, y:20 }}
+                    animate={inView ? { opacity:1, y:0 } : {}}
+                    transition={{ duration:0.6, delay:0.1 }}
                     style={{
                         fontFamily: "var(--font-heading)",
                         fontSize: "clamp(2rem, 4vw, 3.5rem)",
                         fontWeight: 700,
-                        color: "var(--color-white)",
+                        color: "var(--color-text)",
                         maxWidth: "600px",
                         lineHeight: 1.2,
                         marginBottom: "3rem",
@@ -237,17 +229,25 @@ export function ServicesSection() {
                 </motion.h2>
 
                 {/* Services grid */}
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-                        gap: "1.5rem",
-                    }}
-                >
-                    {serviceKeys.map((key, i) => (
-                        <ServiceCard key={key} serviceKey={key} index={i} inView={inView} />
-                    ))}
-                </div>
+                {loading ? (
+                    <div style={{ textAlign: "center", padding: "3rem" }}>
+                        <p style={{ color: "var(--color-text-muted)" }}>
+                            {typeof window !== "undefined" && document.documentElement.lang === "ar" ? "جاري التحميل..." : "Loading..."}
+                        </p>
+                    </div>
+                ) : (
+                    <div
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+                            gap: "1.5rem",
+                        }}
+                    >
+                        {services.map((service, i) => (
+                            <ServiceCard key={service.id} service={service} index={i} inView={inView} />
+                        ))}
+                    </div>
+                )}
             </div>
 
             <style>{`
@@ -255,9 +255,9 @@ export function ServicesSection() {
           opacity: 0.25;
         }
         .service-card:hover .service-icon {
-          background: rgba(201, 168, 76, 0.18);
+          background: var(--color-gold-dim);
           border-color: var(--color-gold);
-          box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+          box-shadow: 0 0 20px var(--color-gold-dim);
         }
         .service-card:hover {
           transform: translateY(-4px) !important;

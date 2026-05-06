@@ -4,7 +4,12 @@
         "projects": "Projects",
         "about": "About",
         "contact": "Contact",
-        "consultation": "Book Consultation"
+        "consultation": "Book Consultation",
+    "team": "Team",
+    "blog": "Blog",
+    "certifications": "Certifications",
+    "clients": "Clients",
+    "career": "Careers"
     },
     "hero": {
         "headline": "Building the Future",
@@ -54,6 +59,7 @@
     "projects": {
         "title": "Featured Projects",
         "subtitle": "A selection of our work across Saudi Arabia",
+        "description": "Explore our latest engineering projects delivered with world-class quality standards",
         "viewAll": "View All Projects",
         "drag": "Drag to browse"
     },

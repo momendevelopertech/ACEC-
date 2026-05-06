@@ -3,9 +3,17 @@
 import { useLocale, useTranslations } from "next-intl";
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
-import { getServiceBySlug } from "@/lib/services";
 
-type Service = NonNullable<ReturnType<typeof getServiceBySlug>>;
+export type Service = {
+  title: { ar: string; en: string };
+  subtitle: { ar: string; en: string };
+  description: { ar: string; en: string };
+  image: string;
+  features: { ar: string; en: string }[];
+  deliverables: { ar: string; en: string }[];
+  expertise: { ar: string; en: string }[];
+  slug: string;
+};
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },

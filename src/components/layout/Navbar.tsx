@@ -93,7 +93,7 @@ export function Navbar() {
                 scrolled ? "py-3 px-4 backdrop-blur-2xl border-b border-border-default/25" : "py-4 px-4 backdrop-blur-none border-transparent"
             }`}
         >
-            <div className="container-custom flex items-center justify-between gap-3 flex-nowrap min-h-[3.6rem] md:min-h-auto w-full">
+            <div dir="ltr" className="container-custom flex items-center justify-between gap-3 flex-nowrap min-h-[3.6rem] md:min-h-auto w-full">
                 {/* Logo */}
                 <div className="flex items-center gap-3 min-w-0">
                     <div className="lg:hidden">
@@ -105,12 +105,12 @@ export function Navbar() {
                 </div>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-2 flex-wrap relative">
+                <nav className="hidden lg:flex items-center gap-1 xl:gap-2 flex-nowrap relative min-w-0 flex-1 justify-center">
                     {mainNavLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`text-text-primary no-underline text-[0.95rem] font-semibold py-2 px-4 rounded-full transition-all duration-200 hover:text-text-primary hover:bg-accent/15 ${isRTL ? "tracking-normal" : "tracking-[0.01em]"}`}
+                            className={`text-text-primary no-underline text-[0.92rem] xl:text-[0.95rem] font-semibold py-2 px-3 xl:px-4 rounded-full transition-all duration-200 hover:text-text-primary hover:bg-accent/15 tracking-[0.01em] whitespace-nowrap`}
                         >
                             {link.label}
                         </Link>
@@ -126,7 +126,7 @@ export function Navbar() {
                             {t("more")}
                         </button>
                         {moreOpen && (
-                            <div className={`absolute top-full ${isRTL ? "right-0" : "left-0"} bg-background border border-border-default rounded-lg p-2 mt-1 z-20 shadow-[0_4px_12px_rgba(0,0,0,0.15)]`}>
+                            <div className="absolute top-full left-0 bg-background border border-border-default rounded-lg p-2 mt-1 z-20 shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
                                 {secondaryNavLinks.map((link) => (
                                     <Link
                                         key={link.href}
@@ -143,7 +143,7 @@ export function Navbar() {
                 </nav>
 
                 {/* Right side actions */}
-                <div className="flex items-center gap-3 flex-nowrap justify-end min-w-0">
+                <div className="flex items-center gap-2 xl:gap-3 flex-nowrap justify-end min-w-0 flex-shrink-0">
                     {/* Language switcher */}
                     <button
                         onClick={switchLocale}

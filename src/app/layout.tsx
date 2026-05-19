@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { generateThemeCssVars } from "@/lib/theme-utils";
 import "./globals.css";
-import { CustomCursor } from "@/components/ui/CustomCursor";
+import dynamic from "next/dynamic";
+
+const CustomCursor = dynamic(
+  () => import("@/components/ui/CustomCursor").then((m) => m.CustomCursor),
+  { ssr: false }
+);
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
 

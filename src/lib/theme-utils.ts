@@ -1,5 +1,11 @@
 import { ThemeColors } from './theme-types';
 
+export function generateThemeCssVars(colors: ThemeColors): string {
+  return Object.entries(colors)
+    .map(([key, value]) => `--color-${key}: ${value};`)
+    .join(' ');
+}
+
 export function hexToRgb(hex: string): string {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result

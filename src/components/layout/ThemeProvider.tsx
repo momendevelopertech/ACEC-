@@ -11,12 +11,14 @@ type Mode = "light" | "dark";
 interface ThemeContextType {
   mode: Mode;
   toggleMode: () => void;
+  switchTheme: (themeId: number) => Promise<void>;
   isLoading: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType>({
   mode: "light",
   toggleMode: () => {},
+  switchTheme: async () => {},
   isLoading: true,
 });
 
@@ -80,8 +82,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setMode((prev) => (prev === "light" ? "dark" : "light"));
   }, []);
 
+  const switchTheme = useCallback(async (themeId: number) => {
+    try {
+      await fetch(`${API_BASE}/api/themes/${themeId}/activate`, {
+        method: 'POST',
+      });
+      window.location.reload();
+    } catch (error) {
+      console.error('Failed to activate theme:', error);
+    }
+  }, []);
+
   return (
-    <ThemeContext.Provider value={{ mode, toggleMode, isLoading }}>
+    <ThemeContext.Provider value={{ mode, toggleMode, switchTheme, isLoading }}>
       {/* We apply a transition class to the body after initial load to prevent flashing */}
       <div className={`theme-wrapper ${!isLoading ? 'transition-colors duration-300' : ''}`}>
         {children}

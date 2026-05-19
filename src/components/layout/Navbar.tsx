@@ -68,6 +68,7 @@ export function Navbar() {
     // Secondary links - shown in mobile menu or footer
     const secondaryNavLinks = [
         { href: `/${locale}/blog`, label: t("blog") },
+        { href: `/${locale}/profile`, label: t("profile") },
         { href: `/${locale}/certifications`, label: t("certifications") },
         { href: `/${locale}/career`, label: t("career") },
         { href: `/${locale}/contact`, label: t("contact") },
@@ -81,6 +82,7 @@ export function Navbar() {
         { href: `/${locale}/clients`, label: t("clients"), icon: "🤝" },
         { href: `/${locale}/blog`, label: t("blog"), icon: "📝" },
         { href: `/${locale}/certifications`, label: t("certifications"), icon: "🏅" },
+        { href: `/${locale}/profile`, label: t("profile"), icon: "📄" },
         { href: `/${locale}/career`, label: t("career"), icon: "💼" },
         { href: `/${locale}/contact`, label: t("contact"), icon: "📞" },
     ];

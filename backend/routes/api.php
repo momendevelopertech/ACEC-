@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\MessagesController;
 use App\Http\Controllers\Api\ThemeController;
 use App\Http\Controllers\Api\TrackingController;
 use App\Http\Controllers\Api\SettingsController;
+use App\Http\Controllers\Api\ProfilePdfController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -46,4 +47,5 @@ Route::prefix('v1')->group(function () {
     Route::post('/contact', [MessagesController::class, 'store'])->middleware('throttle:5,1');
     Route::post('/job-apply', [MessagesController::class, 'apply'])->middleware('throttle:5,1');
     Route::post('/track', [TrackingController::class, 'store'])->middleware('throttle:60,1');
+    Route::get('/profile-pdf/active', [ProfilePdfController::class, 'active']);
 });

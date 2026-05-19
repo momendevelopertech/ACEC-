@@ -12,6 +12,7 @@ return [
     'certifications' => 'Certifications',
     'job_postings'   => 'Job Postings',
     'themes'         => 'Themes',
+    'profile_pdfs'   => 'Profile PDFs',
 
     // Widgets
     'recent_messages'    => 'Recent Messages',
@@ -149,4 +150,10 @@ return [
     'logout' => 'Logout',
     'lang_switch_ar' => 'العربية',
     'lang_switch_en' => 'English',
+
+    // Profile PDFs
+    'col_pdf_file'          => 'PDF File',
+    'col_file_size'         => 'Size',
+    'section_pdf_details'   => 'File Details',
+    'profile_pdf_active_hint' => 'When activated, any other active PDF will be deactivated automatically.',
 ];

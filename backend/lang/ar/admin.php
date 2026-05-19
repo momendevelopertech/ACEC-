@@ -12,6 +12,7 @@ return [
     'certifications' => 'الشهادات',
     'job_postings'   => 'الوظائف',
     'themes'         => 'الثيمات',
+    'profile_pdfs'   => 'ملفات الـ PDF التعريفية',
 
     // Widgets
     'recent_messages'    => 'الرسائل الأخيرة',
@@ -149,4 +150,10 @@ return [
     'logout' => 'تسجيل الخروج',
     'lang_switch_ar' => 'العربية',
     'lang_switch_en' => 'English',
+
+    // Profile PDFs
+    'col_pdf_file'          => 'ملف PDF',
+    'col_file_size'         => 'الحجم',
+    'section_pdf_details'   => 'تفاصيل الملف',
+    'profile_pdf_active_hint' => 'عند التفعيل، يتم إلغاء تفعيل أي PDF نشط آخر تلقائيًا.',
 ];
